@@ -33,7 +33,7 @@ public class StartController {
             Parent root = FXMLLoader.load(getClass().getResource("addFestivalRun-view.fxml"));
             Stage s = (Stage) ((Node) e.getSource()).getScene().getWindow();
             s.setTitle("Add Festival Run");
-            s.setScene(new Scene(root, 600, 153));
+            s.setScene(new Scene(root, 600, 400));
             s.show();
         }
 
@@ -41,7 +41,7 @@ public class StartController {
             Parent root = FXMLLoader.load(getClass().getResource("statistics-view.fxml"));
             Stage s = (Stage) ((Node) e.getSource()).getScene().getWindow();
             s.setTitle("Statistics");
-            s.setScene(new Scene(root, 600, 153));
+            s.setScene(new Scene(root));
             s.show();
         }
 

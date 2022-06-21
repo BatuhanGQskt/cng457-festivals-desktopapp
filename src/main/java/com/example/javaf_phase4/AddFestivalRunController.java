@@ -26,20 +26,43 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+/**
+ * Adding festival run using the JavaFX which
+ * can add festival run to a festival.
+ */
 public class AddFestivalRunController {
+    /**
+     * used to get festivalRun
+     */
     @FXML
     private ComboBox festivalRunComboBox;
 
+    /**
+     * used to get festival run id
+     */
     @FXML
     private TextField fesivalRunIdTextField;
 
+    /**
+     * used to get duration from interface
+     */
     @FXML
     private TextField durationTextField;
 
+    /**
+     * used to get date from interface
+     */
     @FXML
     private TextField dateTextField;
 
+    /**
+     * Add festival run using the interface when the button has been clicked. Gets the event to proceed the
+     * action performed by the interface.
+     * @param event proceed the action performed
+     * @throws IOException I/O handler for URL read write
+     */
     public void addFestivalRun(ActionEvent event) throws IOException {
+        //Establish connection
         HttpURLConnection connection = (HttpURLConnection) new URL("http://localhost:8080/addfestivalrun").openConnection();
         connection.setRequestMethod("POST");
         connection.setRequestProperty("Content-Type", "application/json; utf-8");
@@ -47,12 +70,14 @@ public class AddFestivalRunController {
         connection.setDoInput(true); //Set the DoInput flag to true if you intend to use the URL connection for input
         connection.setDoOutput(true);
 
+        //Gets festival id to add the festival run to it.
         String festivalid = festivalRunComboBox.getValue().toString().split("-")[0];
 
         System.out.println(festivalid);
 
         JSONObject festivalRun = new JSONObject();
 
+        //Put information from interface to JSONObject
         System.out.println(fesivalRunIdTextField.getText().toString());
         festivalRun.put("festivalRunId", Integer.parseInt(fesivalRunIdTextField.getText()));
         festivalRun.put("duration", Integer.parseInt(durationTextField.getText()));
@@ -65,6 +90,7 @@ public class AddFestivalRunController {
 
         System.out.println(festivalRun.toJSONString());
 
+        //Trying to write the JSONObject to the database.
         try(OutputStream os = connection.getOutputStream()){
             byte[] input = festivalRun.toJSONString().getBytes(StandardCharsets.UTF_8);
             os.write(input, 0, input.length);
@@ -86,7 +112,11 @@ public class AddFestivalRunController {
         System.out.println(response);
     }
 
-    //??? Is it the correct way to implement it?
+    /**
+     * Going back to the start view.
+     * @param event proceed the action performed
+     * @throws IOException I/O handler for URL read write
+     */
     public void backPressed(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
         Stage s = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -95,6 +125,12 @@ public class AddFestivalRunController {
         s.show();
     }
 
+
+    /**
+     * initializes the comboBox values using the URL connection from the DB.
+     * @throws IOException I/O handler for URL read write
+     * @throws ParseException
+     */
     public void initialize() throws IOException, ParseException {
         System.out.println("I have called");
 

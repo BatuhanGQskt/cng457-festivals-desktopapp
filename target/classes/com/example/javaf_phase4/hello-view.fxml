@@ -1,23 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.RadioButton?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javaf_phase4.StartController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javaf_phase4.StartController">
    <children>
       <RadioButton fx:id="addFestivalRunRadButton" layoutY="79.0" mnemonicParsing="false" text="Add Festival Run">
          <padding>
             <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
          </padding>
+         <toggleGroup>
+            <ToggleGroup fx:id="ButtonGroup" />
+         </toggleGroup>
       </RadioButton>
-      <RadioButton fx:id="addConcertRadButton" layoutX="179.0" layoutY="79.0" mnemonicParsing="false" text="Add Concert">
+      <RadioButton fx:id="addConcertRadButton" layoutX="179.0" layoutY="79.0" mnemonicParsing="false" text="Add Concert" toggleGroup="$ButtonGroup">
          <padding>
             <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
          </padding>
       </RadioButton>
-      <RadioButton fx:id="statisticsRadButton" layoutX="347.0" layoutY="79.0" mnemonicParsing="false" text="Statistics">
+      <RadioButton fx:id="statisticsRadButton" layoutX="347.0" layoutY="79.0" mnemonicParsing="false" text="Statistics" toggleGroup="$ButtonGroup">
          <padding>
             <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
          </padding>

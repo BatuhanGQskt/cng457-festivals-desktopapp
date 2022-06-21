@@ -26,7 +26,7 @@ public class StartController {
             Parent root = FXMLLoader.load(getClass().getResource("addConcert-view.fxml"));
             Stage s = (Stage) ((Node) e.getSource()).getScene().getWindow();
             s.setTitle("Add Concert");
-            s.setScene(new Scene(root, 600, 153));
+            s.setScene(new Scene(root));
             s.show();
         }
         if(addFestivalRunRadButton.isSelected()) {
@@ -41,7 +41,7 @@ public class StartController {
             Parent root = FXMLLoader.load(getClass().getResource("statistics-view.fxml"));
             Stage s = (Stage) ((Node) e.getSource()).getScene().getWindow();
             s.setTitle("Statistics");
-            s.setScene(new Scene(root, 600, 153));
+            s.setScene(new Scene(root));
             s.show();
         }
 

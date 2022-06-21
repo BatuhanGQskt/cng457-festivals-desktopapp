@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.javaf_phase4.StatisticsController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javaf_phase4.StatisticsController">
+    <children>
+        <ListView fx:id="popularfestivalslist" layoutX="41.0" layoutY="126.0" prefHeight="200.0" prefWidth="200.0" />
+        <ListView fx:id="longestconcertslist" layoutX="339.0" layoutY="126.0" prefHeight="200.0" prefWidth="200.0" />
+        <CheckBox fx:id="showpopularfestivals" layoutX="85.0" layoutY="82.0" mnemonicParsing="false" text="Popular Festivals" />
+        <CheckBox fx:id="showlongestconcerts" layoutX="382.0" layoutY="82.0" mnemonicParsing="false" text="Longest Concerts" />
+        <Button fx:id="showlist" layoutX="274.0" layoutY="350.0" mnemonicParsing="false" onAction="#showAction" text="Show" />
+        <Button layoutX="15.0" layoutY="20.0" mnemonicParsing="false" onAction="#backtomain" text="Back" />
+    </children>
 </AnchorPane>

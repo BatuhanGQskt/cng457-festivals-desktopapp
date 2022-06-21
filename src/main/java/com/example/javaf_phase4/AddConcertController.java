@@ -2,8 +2,13 @@ package com.example.javaf_phase4;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -40,6 +45,13 @@ public class AddConcertController {
     private TextField performanser_name;
 
 
+    /***
+     * When combo2box selected get festivalruns and festival information and set the needed places,
+     * and get the Event(concert) infromation from Textfield this is AddConcet Button.
+     * @param event
+     * @throws IOException
+     * @throws ParseException
+     */
     public void comboBox2Selected(ActionEvent event) throws IOException, ParseException {
 
         HttpURLConnection connection = (HttpURLConnection)(new URL("http://localhost:8080/addconcert")).openConnection();
@@ -128,6 +140,12 @@ public class AddConcertController {
     }
 
 
+    /***
+     * Get all festivals runs according the one festival id.
+     * @param event
+     * @throws IOException
+     * @throws ParseException
+     */
     public void comboBox1Selected(ActionEvent event) throws IOException, ParseException {
 
 
@@ -173,8 +191,25 @@ public class AddConcertController {
 
     }
 
+    /***
+     * When backbutton pressed in concert page return the main page.
+     * @param event
+     * @throws IOException
+     */
+    public void backButtonPress(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
+        Stage s = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        s.setTitle("Hello View");
+        s.setScene(new Scene(root, 500, 300));
+        s.show();
+    }
 
 
+    /***
+     * When Add concert button selected before the open concert page it is find all festivals and set into combobox1
+     * @throws IOException
+     * @throws org.json.simple.parser.ParseException
+     */
     public void initialize() throws IOException, org.json.simple.parser.ParseException {
 
         String response = "";

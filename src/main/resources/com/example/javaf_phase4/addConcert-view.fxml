@@ -20,5 +20,6 @@
         <TextField fx:id="performanser_name" layoutX="206.0" layoutY="313.0" />
         <Label layoutX="116.0" layoutY="35.0" text="Select Festival" />
         <Label layoutX="92.0" layoutY="87.0" text="Select Festival Run" />
+        <Button layoutX="420.0" layoutY="31.0" mnemonicParsing="false" onAction="#backButtonPress" text="Back to main page" />
     </children>
 </Pane>

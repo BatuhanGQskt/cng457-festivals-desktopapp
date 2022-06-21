@@ -1,14 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.javaf_phase4.AddConcertController"
-            prefHeight="400.0" prefWidth="600.0">
-
-</AnchorPane>
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javaf_phase4.AddConcertController">
+    <children>
+        <ComboBox fx:id="comboBox1" layoutX="205.0" layoutY="31.0" onAction="#comboBox1Selected" prefWidth="150.0" />
+        <ComboBox fx:id="comboBox2" layoutX="205.0" layoutY="83.0" prefWidth="150.0" />
+        <Label layoutX="145.0" layoutY="129.0" text="Event ID" />
+        <Label layoutX="136.0" layoutY="179.0" text="Description" />
+        <Label layoutX="143.0" layoutY="226.0" text="Duration" />
+        <TextField fx:id="event_id" layoutX="206.0" layoutY="125.0" />
+        <TextField fx:id="description" layoutX="206.0" layoutY="175.0" />
+        <TextField fx:id="duration" layoutX="206.0" layoutY="222.0" />
+        <Label layoutX="140.0" layoutY="273.0" text="Start Date" />
+        <Label layoutX="109.0" layoutY="317.0" text="Performer Name" />
+        <Button layoutX="272.0" layoutY="353.0" mnemonicParsing="false" onAction="#comboBox2Selected" text="Add Concert" />
+        <TextField fx:id="start_date" layoutX="206.0" layoutY="269.0" />
+        <TextField fx:id="performanser_name" layoutX="206.0" layoutY="313.0" />
+        <Label layoutX="116.0" layoutY="35.0" text="Select Festival" />
+        <Label layoutX="92.0" layoutY="87.0" text="Select Festival Run" />
+    </children>
+</Pane>
